@@ -1,0 +1,73 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/orders-intents
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      order_intent_price:
+        name: order_intent_price
+        description: ''
+        required: true
+        example: 9133.57186878
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      order_intent_type:
+        name: order_intent_type
+        description: ''
+        required: true
+        example: quo
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      user_email:
+        name: user_email
+        description: 'Must be a valid email address.'
+        required: true
+        example: allison61@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      user_phone:
+        name: user_phone
+        description: ''
+        required: true
+        example: nemo
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      order_intent_price: 9133.57186878
+      order_intent_type: quo
+      user_email: allison61@example.com
+      user_phone: nemo
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

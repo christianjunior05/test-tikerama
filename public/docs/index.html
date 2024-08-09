@@ -1,0 +1,1522 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Laravel Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+            </style>
+
+    <script>
+        var tryItOutBaseUrl = "http://localhost";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-4.37.1.js"></script>
+
+    <script src="../docs/js/theme-default-4.37.1.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image"/>
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                    <ul id="tocify-header-introduction" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="introduction">
+                    <a href="#introduction">Introduction</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-authenticating-requests" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="authenticating-requests">
+                    <a href="#authenticating-requests">Authenticating requests</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-endpoints" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="endpoints">
+                    <a href="#endpoints">Endpoints</a>
+                </li>
+                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-orders-intents">
+                                <a href="#endpoints-POSTapi-orders-intents">POST api/orders-intents</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-events" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="events">
+                    <a href="#events">Events</a>
+                </li>
+                                    <ul id="tocify-subheader-events" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="events-GETapi-events">
+                                <a href="#events-GETapi-events">Lister les événements en cours</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="events-GETapi-events--event_id--ticket-types">
+                                <a href="#events-GETapi-events--event_id--ticket-types">Récupérer les types de billets pour un événement donné</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-orders" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="orders">
+                    <a href="#orders">Orders</a>
+                </li>
+                                    <ul id="tocify-subheader-orders" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="orders-POSTapi-orders">
+                                <a href="#orders-POSTapi-orders">Create a new order</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="orders-GETapi-orders--user_id--all">
+                                <a href="#orders-GETapi-orders--user_id--all">Get all orders of a user</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+            </div>
+
+    <ul class="toc-footer" id="toc-footer">
+                    <li style="padding-bottom: 5px;"><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li style="padding-bottom: 5px;"><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+    </ul>
+
+    <ul class="toc-footer" id="last-updated">
+        <li>Last updated: August 9, 2024</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<aside>
+    <strong>Base URL</strong>: <code>http://localhost</code>
+</aside>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>This API is not authenticated.</p>
+
+        <h1 id="endpoints">Endpoints</h1>
+
+    
+
+                                <h2 id="endpoints-POSTapi-orders-intents">POST api/orders-intents</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-orders-intents">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/orders-intents" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"order_intent_price\": 9133.57186878,
+    \"order_intent_type\": \"quo\",
+    \"user_email\": \"allison61@example.com\",
+    \"user_phone\": \"nemo\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/orders-intents"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "order_intent_price": 9133.57186878,
+    "order_intent_type": "quo",
+    "user_email": "allison61@example.com",
+    "user_phone": "nemo"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-orders-intents">
+</span>
+<span id="execution-results-POSTapi-orders-intents" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-orders-intents"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-orders-intents"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-orders-intents" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-orders-intents">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-orders-intents" data-method="POST"
+      data-path="api/orders-intents"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-orders-intents', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-orders-intents"
+                    onclick="tryItOut('POSTapi-orders-intents');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-orders-intents"
+                    onclick="cancelTryOut('POSTapi-orders-intents');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-orders-intents"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/orders-intents</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-orders-intents"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-orders-intents"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>order_intent_price</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="order_intent_price"                data-endpoint="POSTapi-orders-intents"
+               value="9133.57186878"
+               data-component="body">
+    <br>
+<p>Example: <code>9133.57186878</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>order_intent_type</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="order_intent_type"                data-endpoint="POSTapi-orders-intents"
+               value="quo"
+               data-component="body">
+    <br>
+<p>Example: <code>quo</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>user_email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="user_email"                data-endpoint="POSTapi-orders-intents"
+               value="allison61@example.com"
+               data-component="body">
+    <br>
+<p>Must be a valid email address. Example: <code>allison61@example.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>user_phone</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="user_phone"                data-endpoint="POSTapi-orders-intents"
+               value="nemo"
+               data-component="body">
+    <br>
+<p>Example: <code>nemo</code></p>
+        </div>
+        </form>
+
+                <h1 id="events">Events</h1>
+
+    
+
+                                <h2 id="events-GETapi-events">Lister les événements en cours</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-events">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/events" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/events"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-events">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">[
+    {
+        &quot;id&quot;: 1,
+        &quot;event_category&quot;: &quot;Autres&quot;,
+        &quot;event_title&quot;: &quot;Dicta ipsam aliquam in tempora.&quot;,
+        &quot;event_description&quot;: &quot;Qui aut optio nesciunt optio id accusamus sint. Facere soluta repellendus iste neque molestiae incidunt. Ratione perferendis eligendi quas doloribus provident quam. Minima omnis et illo voluptas ipsam.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-29 22:08:07&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/0000cc?text=voluptatibus&quot;,
+        &quot;event_city&quot;: &quot;West Tremaynechester&quot;,
+        &quot;event_address&quot;: &quot;681 Gusikowski Junctions\nEmardmouth, VT 25328&quot;,
+        &quot;event_status&quot;: &quot;cancelled&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 2,
+        &quot;event_category&quot;: &quot;Autres&quot;,
+        &quot;event_title&quot;: &quot;Occaecati quae modi voluptatem sit cumque officiis enim.&quot;,
+        &quot;event_description&quot;: &quot;Alias iusto voluptatem veniam. Ullam optio asperiores eum enim officia. Similique quia numquam qui iste harum dolores maxime.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-31 01:29:01&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/00bb44?text=qui&quot;,
+        &quot;event_city&quot;: &quot;Beaulahtown&quot;,
+        &quot;event_address&quot;: &quot;63706 Smitham Hill Suite 989\nJaneland, AZ 27727&quot;,
+        &quot;event_status&quot;: &quot;completed&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 3,
+        &quot;event_category&quot;: &quot;Festival&quot;,
+        &quot;event_title&quot;: &quot;Sed est in et impedit et.&quot;,
+        &quot;event_description&quot;: &quot;Voluptatem eos totam error sed hic voluptatem quibusdam dolor. Voluptas eos a recusandae et provident. Et eos rerum sed assumenda nobis incidunt repellendus porro. Est illum modi ut non non beatae dolores.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-24 00:49:50&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/0055bb?text=fuga&quot;,
+        &quot;event_city&quot;: &quot;South Abdulburgh&quot;,
+        &quot;event_address&quot;: &quot;267 Shaniya Springs\nNikolausmouth, GA 33628&quot;,
+        &quot;event_status&quot;: &quot;completed&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 4,
+        &quot;event_category&quot;: &quot;Festival&quot;,
+        &quot;event_title&quot;: &quot;Pariatur vel ea nihil quisquam.&quot;,
+        &quot;event_description&quot;: &quot;Doloribus asperiores qui velit amet occaecati. Molestiae quos voluptatem in aut expedita esse id. Rerum repellat ea officiis alias tenetur veritatis officia.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-29 18:43:09&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/0000dd?text=iure&quot;,
+        &quot;event_city&quot;: &quot;Lowellchester&quot;,
+        &quot;event_address&quot;: &quot;3409 Hoppe Valleys Suite 785\nDockborough, HI 14268&quot;,
+        &quot;event_status&quot;: &quot;completed&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 5,
+        &quot;event_category&quot;: &quot;Atelier&quot;,
+        &quot;event_title&quot;: &quot;Cum quia distinctio nam nisi et.&quot;,
+        &quot;event_description&quot;: &quot;Doloremque rerum quidem velit quia qui quae aut. Nesciunt in tenetur debitis sint consectetur eos.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-28 17:59:53&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/006655?text=aut&quot;,
+        &quot;event_city&quot;: &quot;North Florian&quot;,
+        &quot;event_address&quot;: &quot;1687 Neoma Isle Apt. 500\nGrantmouth, CT 71017&quot;,
+        &quot;event_status&quot;: &quot;completed&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 6,
+        &quot;event_category&quot;: &quot;Formation&quot;,
+        &quot;event_title&quot;: &quot;Consectetur quas optio voluptas ipsam sit tenetur praesentium.&quot;,
+        &quot;event_description&quot;: &quot;Modi ipsum totam rerum qui ut magnam. At perspiciatis voluptate omnis rem fugit. Consequuntur porro labore voluptatem tenetur qui quas labore tempore.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-24 08:56:07&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/005533?text=et&quot;,
+        &quot;event_city&quot;: &quot;Fletcherchester&quot;,
+        &quot;event_address&quot;: &quot;4815 Daniel Village\nNorth Aleneport, MN 59589-7155&quot;,
+        &quot;event_status&quot;: &quot;cancelled&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 7,
+        &quot;event_category&quot;: &quot;Autres&quot;,
+        &quot;event_title&quot;: &quot;Voluptas ipsum et quo amet error perferendis ut.&quot;,
+        &quot;event_description&quot;: &quot;Quo id consequatur enim autem sequi aut at. Assumenda eaque earum natus vitae sunt animi. Tempora qui natus est nemo quidem eaque. Non numquam aut at ut totam.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-19 08:32:33&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/00ee11?text=assumenda&quot;,
+        &quot;event_city&quot;: &quot;Lysannemouth&quot;,
+        &quot;event_address&quot;: &quot;5952 Jay Glens\nErdmanview, PA 80103&quot;,
+        &quot;event_status&quot;: &quot;completed&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 8,
+        &quot;event_category&quot;: &quot;Autres&quot;,
+        &quot;event_title&quot;: &quot;Nisi quia ut voluptatem repellendus iusto ut ea.&quot;,
+        &quot;event_description&quot;: &quot;Ab inventore et ratione vero. Inventore quisquam sed ratione inventore consequatur. Magni commodi perspiciatis sit autem incidunt. Possimus occaecati molestiae quis ipsam quae.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-30 03:13:50&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/002233?text=qui&quot;,
+        &quot;event_city&quot;: &quot;Corwinhaven&quot;,
+        &quot;event_address&quot;: &quot;46577 Nicholas Lodge Apt. 043\nSouth Edwinafort, TX 50093-7449&quot;,
+        &quot;event_status&quot;: &quot;completed&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 9,
+        &quot;event_category&quot;: &quot;Diner Gala&quot;,
+        &quot;event_title&quot;: &quot;Laborum qui illo voluptatem cum enim reiciendis est.&quot;,
+        &quot;event_description&quot;: &quot;Error veniam accusamus molestiae aut perspiciatis neque non. Doloribus sed sunt laudantium qui et ad. Voluptatum delectus sed eum corporis.&quot;,
+        &quot;event_date&quot;: &quot;2024-09-06 11:47:37&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/00dddd?text=mollitia&quot;,
+        &quot;event_city&quot;: &quot;Port Chelsiestad&quot;,
+        &quot;event_address&quot;: &quot;91847 McLaughlin Spring\nVolkmanland, OK 24989&quot;,
+        &quot;event_status&quot;: &quot;upcoming&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 10,
+        &quot;event_category&quot;: &quot;Diner Gala&quot;,
+        &quot;event_title&quot;: &quot;Expedita numquam quis ab recusandae.&quot;,
+        &quot;event_description&quot;: &quot;Architecto odio porro dolorum at qui iusto hic. Qui nihil amet corporis nihil et consequatur. Fugiat est ducimus dolor error. Sequi harum voluptatum in eaque doloribus.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-28 03:00:03&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/004466?text=illum&quot;,
+        &quot;event_city&quot;: &quot;East Heaventon&quot;,
+        &quot;event_address&quot;: &quot;95337 Hannah Mountain Apt. 309\nErdmanton, DC 20441-7737&quot;,
+        &quot;event_status&quot;: &quot;cancelled&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 11,
+        &quot;event_category&quot;: &quot;Atelier&quot;,
+        &quot;event_title&quot;: &quot;Ut facere nostrum maiores.&quot;,
+        &quot;event_description&quot;: &quot;Sunt qui sed itaque consequatur est dolor. Aperiam aut velit voluptas dolor molestiae sit animi. Numquam necessitatibus aperiam quo.&quot;,
+        &quot;event_date&quot;: &quot;2024-09-07 23:06:52&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/00ee66?text=delectus&quot;,
+        &quot;event_city&quot;: &quot;Port Maynard&quot;,
+        &quot;event_address&quot;: &quot;134 Schroeder Port Suite 657\nJarrettmouth, MI 72961-4235&quot;,
+        &quot;event_status&quot;: &quot;cancelled&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 12,
+        &quot;event_category&quot;: &quot;Festival&quot;,
+        &quot;event_title&quot;: &quot;Libero aspernatur eos fuga.&quot;,
+        &quot;event_description&quot;: &quot;Temporibus voluptate minima voluptate eos. Voluptas ipsa velit eos veritatis quo. Minima ipsa temporibus quibusdam necessitatibus tenetur maiores. Quae vero in tempore quidem doloribus architecto sit voluptates. Quia omnis officiis id.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-24 13:21:53&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/002266?text=praesentium&quot;,
+        &quot;event_city&quot;: &quot;Alphonsotown&quot;,
+        &quot;event_address&quot;: &quot;1175 Solon Ports\nNew Ubaldo, LA 08635-5940&quot;,
+        &quot;event_status&quot;: &quot;completed&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 13,
+        &quot;event_category&quot;: &quot;Diner Gala&quot;,
+        &quot;event_title&quot;: &quot;Est sit veritatis id.&quot;,
+        &quot;event_description&quot;: &quot;Explicabo consequuntur dignissimos aut vero dolores sunt. Voluptate deserunt quo ut magni. Et consequatur nulla dolorem labore eum suscipit non. Quibusdam et unde rerum at.&quot;,
+        &quot;event_date&quot;: &quot;2024-09-03 15:13:09&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/00ddbb?text=nihil&quot;,
+        &quot;event_city&quot;: &quot;Gulgowskishire&quot;,
+        &quot;event_address&quot;: &quot;538 Era Fords\nNorth Ovashire, AZ 39749-8134&quot;,
+        &quot;event_status&quot;: &quot;completed&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 14,
+        &quot;event_category&quot;: &quot;Concert-Spectacle&quot;,
+        &quot;event_title&quot;: &quot;Reprehenderit praesentium voluptas voluptas corrupti iure.&quot;,
+        &quot;event_description&quot;: &quot;Molestias commodi veritatis laudantium similique. Molestias numquam molestias minima quia ea et aliquid. Ad nostrum aut natus voluptates eum nisi.&quot;,
+        &quot;event_date&quot;: &quot;2024-09-07 12:18:06&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/003344?text=expedita&quot;,
+        &quot;event_city&quot;: &quot;North Nyasiaside&quot;,
+        &quot;event_address&quot;: &quot;52478 Sipes Run\nO&#039;Konberg, FL 40690-6489&quot;,
+        &quot;event_status&quot;: &quot;upcoming&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 15,
+        &quot;event_category&quot;: &quot;Diner Gala&quot;,
+        &quot;event_title&quot;: &quot;Quos et animi eos explicabo.&quot;,
+        &quot;event_description&quot;: &quot;Quo architecto quia veritatis qui ut. Nesciunt sit sit quibusdam et optio maxime laboriosam. Est impedit perspiciatis doloribus dolorem magnam. Aut debitis ducimus quia ad ut.&quot;,
+        &quot;event_date&quot;: &quot;2024-09-01 21:19:02&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/00bb55?text=non&quot;,
+        &quot;event_city&quot;: &quot;Dickensfurt&quot;,
+        &quot;event_address&quot;: &quot;12490 Maggio Crossroad Apt. 572\nPort Gabriella, ME 81950-3997&quot;,
+        &quot;event_status&quot;: &quot;upcoming&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 16,
+        &quot;event_category&quot;: &quot;Autres&quot;,
+        &quot;event_title&quot;: &quot;Quaerat dolor fugiat illum eius animi deleniti.&quot;,
+        &quot;event_description&quot;: &quot;Officiis est unde molestiae non ea. Et minus dolor quam ad neque optio. Quia labore earum sed sapiente eligendi dolorum. Dolorem omnis et repellat maxime.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-21 12:37:00&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/005511?text=nemo&quot;,
+        &quot;event_city&quot;: &quot;Edabury&quot;,
+        &quot;event_address&quot;: &quot;84679 Corkery Springs Suite 633\nNorth Arnoldchester, CT 37716&quot;,
+        &quot;event_status&quot;: &quot;upcoming&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 17,
+        &quot;event_category&quot;: &quot;Concert-Spectacle&quot;,
+        &quot;event_title&quot;: &quot;Tempora maxime facilis et et voluptatem laudantium eveniet.&quot;,
+        &quot;event_description&quot;: &quot;Voluptate animi perspiciatis dolores possimus et numquam officia sunt. Similique tenetur voluptas ad repudiandae. Iste earum ipsa dolores distinctio autem expedita recusandae. Officiis in qui at quos vel nulla.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-27 09:58:55&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/00cc77?text=exercitationem&quot;,
+        &quot;event_city&quot;: &quot;Port Amarachester&quot;,
+        &quot;event_address&quot;: &quot;736 Rosenbaum Crescent\nRempelburgh, MD 54279&quot;,
+        &quot;event_status&quot;: &quot;completed&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 18,
+        &quot;event_category&quot;: &quot;Concert-Spectacle&quot;,
+        &quot;event_title&quot;: &quot;Est est asperiores dignissimos libero modi cumque laborum.&quot;,
+        &quot;event_description&quot;: &quot;Maiores aperiam natus voluptatem ex doloribus suscipit. Iste velit recusandae rerum illo. Natus repellat modi similique tempore nostrum rerum.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-17 21:24:11&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/008899?text=occaecati&quot;,
+        &quot;event_city&quot;: &quot;West Olaftown&quot;,
+        &quot;event_address&quot;: &quot;344 Gilbert Mews\nGlennieview, IN 25079&quot;,
+        &quot;event_status&quot;: &quot;completed&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 19,
+        &quot;event_category&quot;: &quot;Formation&quot;,
+        &quot;event_title&quot;: &quot;Voluptate quia autem dolor eos optio.&quot;,
+        &quot;event_description&quot;: &quot;Voluptates doloribus eos officiis distinctio. Esse dolorum similique deserunt repellendus quos amet non dolorum. Commodi minus voluptate nisi omnis laudantium. Laudantium vero sed assumenda doloremque ut ut.&quot;,
+        &quot;event_date&quot;: &quot;2024-09-06 09:04:17&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/00eeee?text=nihil&quot;,
+        &quot;event_city&quot;: &quot;Chasityview&quot;,
+        &quot;event_address&quot;: &quot;9263 Alysha Place Suite 216\nManteburgh, NE 10022-4750&quot;,
+        &quot;event_status&quot;: &quot;cancelled&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 20,
+        &quot;event_category&quot;: &quot;Festival&quot;,
+        &quot;event_title&quot;: &quot;Voluptatem necessitatibus debitis qui debitis consequatur vitae.&quot;,
+        &quot;event_description&quot;: &quot;Delectus molestias deserunt deleniti corrupti enim aut nisi nihil. Enim quia porro voluptate quisquam velit saepe et. Sit incidunt et quia quia.&quot;,
+        &quot;event_date&quot;: &quot;2024-09-01 21:33:13&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/006600?text=ex&quot;,
+        &quot;event_city&quot;: &quot;Vitaside&quot;,
+        &quot;event_address&quot;: &quot;57587 Waylon Trail\nNew Rosella, MT 66272-4648&quot;,
+        &quot;event_status&quot;: &quot;upcoming&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 21,
+        &quot;event_category&quot;: &quot;Autres&quot;,
+        &quot;event_title&quot;: &quot;Quia eveniet iste explicabo velit omnis.&quot;,
+        &quot;event_description&quot;: &quot;Qui veritatis ut et eos animi perferendis. Quia consequuntur rerum enim inventore voluptatem ipsam a. Voluptas cumque enim et amet aspernatur. Tempora illo fugiat quaerat atque.&quot;,
+        &quot;event_date&quot;: &quot;2024-09-06 02:08:55&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/0055cc?text=velit&quot;,
+        &quot;event_city&quot;: &quot;Erwinbury&quot;,
+        &quot;event_address&quot;: &quot;87341 Keeling Stream\nGarnetburgh, AZ 53699&quot;,
+        &quot;event_status&quot;: &quot;completed&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 22,
+        &quot;event_category&quot;: &quot;Diner Gala&quot;,
+        &quot;event_title&quot;: &quot;Reprehenderit voluptatem soluta quia laudantium in.&quot;,
+        &quot;event_description&quot;: &quot;Delectus modi repellat et autem et est molestias. Vitae beatae non ut cumque dolor qui ipsa aut. Quos ullam sint laboriosam vel ad reiciendis harum. Facilis nihil repellat veritatis nobis.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-17 15:16:39&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/00bb22?text=necessitatibus&quot;,
+        &quot;event_city&quot;: &quot;Denesikfort&quot;,
+        &quot;event_address&quot;: &quot;4972 Weston Pike Suite 045\nLake Derekmouth, MO 22962-6030&quot;,
+        &quot;event_status&quot;: &quot;cancelled&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 23,
+        &quot;event_category&quot;: &quot;Autres&quot;,
+        &quot;event_title&quot;: &quot;Voluptatum qui voluptatibus non nulla.&quot;,
+        &quot;event_description&quot;: &quot;Nam ab autem veniam debitis. Harum aut non labore soluta quaerat necessitatibus ad. Aut ea enim rerum et accusamus quas. Ex suscipit architecto nesciunt veritatis molestiae quas et.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-29 05:43:40&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/00ff55?text=et&quot;,
+        &quot;event_city&quot;: &quot;Port Sylvia&quot;,
+        &quot;event_address&quot;: &quot;3829 Claude Tunnel\nLake Tianna, WI 58051&quot;,
+        &quot;event_status&quot;: &quot;upcoming&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 24,
+        &quot;event_category&quot;: &quot;Atelier&quot;,
+        &quot;event_title&quot;: &quot;Temporibus laudantium doloribus error quia ipsa.&quot;,
+        &quot;event_description&quot;: &quot;Accusamus accusantium aut necessitatibus. Repudiandae corporis vitae maxime voluptatem quo voluptas dolor. Et et ratione consequuntur voluptatem dolorem provident.&quot;,
+        &quot;event_date&quot;: &quot;2024-09-09 08:15:58&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/0088aa?text=ex&quot;,
+        &quot;event_city&quot;: &quot;Parisianborough&quot;,
+        &quot;event_address&quot;: &quot;4526 Roberts Crest Suite 735\nNew Audie, KY 21907&quot;,
+        &quot;event_status&quot;: &quot;upcoming&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 25,
+        &quot;event_category&quot;: &quot;Formation&quot;,
+        &quot;event_title&quot;: &quot;Id neque culpa autem et magni.&quot;,
+        &quot;event_description&quot;: &quot;Enim sit dolor et voluptatem tempora aut esse. Et enim odio hic nam sint autem. Voluptas dolor velit architecto atque nulla ea. Libero veritatis repudiandae consequatur odit non rem id.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-22 12:13:40&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/003399?text=in&quot;,
+        &quot;event_city&quot;: &quot;New Terrill&quot;,
+        &quot;event_address&quot;: &quot;225 Ankunding Ford\nPort Deangelo, TX 73598&quot;,
+        &quot;event_status&quot;: &quot;cancelled&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 26,
+        &quot;event_category&quot;: &quot;Atelier&quot;,
+        &quot;event_title&quot;: &quot;Sint accusantium ut eius error est.&quot;,
+        &quot;event_description&quot;: &quot;Quibusdam sit sit nam ducimus qui. Et dolor doloribus qui sed. Non omnis quia nobis ex.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-25 20:35:27&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/008877?text=atque&quot;,
+        &quot;event_city&quot;: &quot;Devinfurt&quot;,
+        &quot;event_address&quot;: &quot;86016 Ken Tunnel\nSouth Richmondchester, WV 83216&quot;,
+        &quot;event_status&quot;: &quot;cancelled&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 27,
+        &quot;event_category&quot;: &quot;Atelier&quot;,
+        &quot;event_title&quot;: &quot;Aut ullam qui iste et molestiae.&quot;,
+        &quot;event_description&quot;: &quot;Deleniti et ut cum natus quis amet. Nemo aliquid similique dignissimos est ea consectetur sint necessitatibus. Consequatur repudiandae molestiae enim amet. Et aliquam nulla eum dolorem.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-30 04:15:57&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/005577?text=inventore&quot;,
+        &quot;event_city&quot;: &quot;New Louville&quot;,
+        &quot;event_address&quot;: &quot;1122 Javon Summit Apt. 819\nNew Evelyn, VA 67826-1113&quot;,
+        &quot;event_status&quot;: &quot;upcoming&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 28,
+        &quot;event_category&quot;: &quot;Diner Gala&quot;,
+        &quot;event_title&quot;: &quot;Repudiandae quia modi repellat quibusdam est ut.&quot;,
+        &quot;event_description&quot;: &quot;Quo aut itaque itaque harum sunt. Est odio asperiores eveniet iure aperiam rerum. Dicta voluptatem qui ipsa alias ut odit aut ut. Officiis quibusdam eius perferendis est veniam voluptatum.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-17 12:40:03&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/00ee44?text=non&quot;,
+        &quot;event_city&quot;: &quot;Bradtkechester&quot;,
+        &quot;event_address&quot;: &quot;91015 DuBuque Mission\nPort Yessenia, WA 56827-1929&quot;,
+        &quot;event_status&quot;: &quot;cancelled&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 29,
+        &quot;event_category&quot;: &quot;Autres&quot;,
+        &quot;event_title&quot;: &quot;Excepturi cum quidem voluptatem et ut sequi ut.&quot;,
+        &quot;event_description&quot;: &quot;Dolor in quaerat sed. Voluptatem saepe et culpa et perferendis dicta facere. Ad consectetur maiores mollitia ea dicta blanditiis.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-19 20:48:00&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/009944?text=totam&quot;,
+        &quot;event_city&quot;: &quot;Chesleyborough&quot;,
+        &quot;event_address&quot;: &quot;272 Carter Shore\nLizethborough, SD 62443&quot;,
+        &quot;event_status&quot;: &quot;upcoming&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 30,
+        &quot;event_category&quot;: &quot;Atelier&quot;,
+        &quot;event_title&quot;: &quot;Totam pariatur voluptas est tempora officia qui vel nulla.&quot;,
+        &quot;event_description&quot;: &quot;Itaque ad voluptas sint illum hic perferendis. Commodi officia blanditiis iusto aliquam quo sint sint. Quia et eum qui neque rerum amet aperiam. Adipisci est quaerat inventore quo quia ut.&quot;,
+        &quot;event_date&quot;: &quot;2024-09-05 12:56:24&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/005588?text=autem&quot;,
+        &quot;event_city&quot;: &quot;Gottliebport&quot;,
+        &quot;event_address&quot;: &quot;280 Jones Trail\nMosciskiborough, OK 63361&quot;,
+        &quot;event_status&quot;: &quot;upcoming&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 31,
+        &quot;event_category&quot;: &quot;Conf&eacute;rence&quot;,
+        &quot;event_title&quot;: &quot;Iure non omnis quam dolorem et sint.&quot;,
+        &quot;event_description&quot;: &quot;Illum quis consequatur dignissimos id aut. Placeat fugiat porro quia suscipit et. Dolorum sed a voluptatem laudantium. Consectetur modi aliquid perspiciatis cupiditate ullam laudantium vero.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-19 06:14:22&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/001177?text=voluptatem&quot;,
+        &quot;event_city&quot;: &quot;Emelieview&quot;,
+        &quot;event_address&quot;: &quot;16462 Chaz Fort\nCarolyntown, OK 69551-9255&quot;,
+        &quot;event_status&quot;: &quot;completed&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 32,
+        &quot;event_category&quot;: &quot;Festival&quot;,
+        &quot;event_title&quot;: &quot;Officia ratione consectetur autem est.&quot;,
+        &quot;event_description&quot;: &quot;Aspernatur laboriosam nulla vero est ut eaque repudiandae. Distinctio fugiat sapiente sunt excepturi.&quot;,
+        &quot;event_date&quot;: &quot;2024-09-01 09:12:04&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/0055aa?text=ipsam&quot;,
+        &quot;event_city&quot;: &quot;East Devonteberg&quot;,
+        &quot;event_address&quot;: &quot;1807 Thomas Isle\nJohnsbury, NH 99330-6541&quot;,
+        &quot;event_status&quot;: &quot;upcoming&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 33,
+        &quot;event_category&quot;: &quot;Atelier&quot;,
+        &quot;event_title&quot;: &quot;Molestiae necessitatibus repellat vero dolorem quibusdam sit quod.&quot;,
+        &quot;event_description&quot;: &quot;At accusamus illo quis dolor ducimus. Possimus nesciunt quia culpa nisi et ut sit. Placeat nobis quia qui dolor voluptatum autem.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-19 09:55:17&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/0022bb?text=quia&quot;,
+        &quot;event_city&quot;: &quot;Keelingmouth&quot;,
+        &quot;event_address&quot;: &quot;9077 Percival Ranch\nNew Sanford, SC 06003-6205&quot;,
+        &quot;event_status&quot;: &quot;completed&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 34,
+        &quot;event_category&quot;: &quot;Conf&eacute;rence&quot;,
+        &quot;event_title&quot;: &quot;Quas omnis pariatur eaque repellendus recusandae quia laboriosam quae.&quot;,
+        &quot;event_description&quot;: &quot;Cumque consequuntur aut reprehenderit est. Totam quisquam aperiam voluptatem provident. Laudantium hic laborum in. Aut voluptas dolor provident autem et non quo vitae.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-30 11:26:49&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/00ee66?text=assumenda&quot;,
+        &quot;event_city&quot;: &quot;Port Coltonbury&quot;,
+        &quot;event_address&quot;: &quot;805 Olen Junction Suite 686\nO&#039;Haraberg, IA 30960&quot;,
+        &quot;event_status&quot;: &quot;cancelled&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 35,
+        &quot;event_category&quot;: &quot;Formation&quot;,
+        &quot;event_title&quot;: &quot;Illum magni est veritatis assumenda voluptatem.&quot;,
+        &quot;event_description&quot;: &quot;Et ad voluptatem neque vel et inventore praesentium. Quod vitae eos ducimus ipsum occaecati.&quot;,
+        &quot;event_date&quot;: &quot;2024-09-06 00:50:21&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/003388?text=consequatur&quot;,
+        &quot;event_city&quot;: &quot;Katlynton&quot;,
+        &quot;event_address&quot;: &quot;6094 Beau Meadows\nBeerport, NE 80435-9955&quot;,
+        &quot;event_status&quot;: &quot;upcoming&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 36,
+        &quot;event_category&quot;: &quot;Formation&quot;,
+        &quot;event_title&quot;: &quot;Officia iusto temporibus occaecati quas explicabo.&quot;,
+        &quot;event_description&quot;: &quot;Laudantium aut accusamus adipisci quis. Rem commodi ad eveniet expedita dolorum sit. Non sit suscipit doloremque qui. Earum tenetur odio aliquam itaque.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-21 05:35:04&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/00ee77?text=nihil&quot;,
+        &quot;event_city&quot;: &quot;South Jarrod&quot;,
+        &quot;event_address&quot;: &quot;119 Jakubowski Burg\nMayerside, NV 66186&quot;,
+        &quot;event_status&quot;: &quot;cancelled&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 37,
+        &quot;event_category&quot;: &quot;Festival&quot;,
+        &quot;event_title&quot;: &quot;Et placeat aut id ratione aliquam suscipit unde.&quot;,
+        &quot;event_description&quot;: &quot;Corrupti est ea corrupti quia similique dolores dolore. Distinctio eligendi ducimus maxime excepturi aut et.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-20 09:49:42&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/00ff11?text=velit&quot;,
+        &quot;event_city&quot;: &quot;South Johnathonfort&quot;,
+        &quot;event_address&quot;: &quot;97906 Kianna Circle Apt. 627\nWest Janiceview, OR 80905-4703&quot;,
+        &quot;event_status&quot;: &quot;upcoming&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 38,
+        &quot;event_category&quot;: &quot;Autres&quot;,
+        &quot;event_title&quot;: &quot;Fuga possimus possimus eos enim.&quot;,
+        &quot;event_description&quot;: &quot;Corporis aliquam porro omnis culpa eveniet rerum. Sit aut repudiandae aut non. Sint rerum quo rem quia voluptas veritatis aliquid.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-23 00:20:31&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/006677?text=eaque&quot;,
+        &quot;event_city&quot;: &quot;Stammburgh&quot;,
+        &quot;event_address&quot;: &quot;965 Millie Glen\nWest Rowanmouth, MA 36306-6655&quot;,
+        &quot;event_status&quot;: &quot;completed&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 39,
+        &quot;event_category&quot;: &quot;Festival&quot;,
+        &quot;event_title&quot;: &quot;Accusantium nostrum quia et molestiae.&quot;,
+        &quot;event_description&quot;: &quot;Porro similique facilis architecto pariatur et omnis. Iste consequatur nesciunt nulla quis dolor rerum est. Vel minima ut debitis culpa nulla eum. Quaerat enim minus dolorem non.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-22 21:18:18&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/002233?text=eum&quot;,
+        &quot;event_city&quot;: &quot;Viviannestad&quot;,
+        &quot;event_address&quot;: &quot;345 Jeffry Brooks\nIsmaelborough, LA 94875&quot;,
+        &quot;event_status&quot;: &quot;cancelled&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 40,
+        &quot;event_category&quot;: &quot;Concert-Spectacle&quot;,
+        &quot;event_title&quot;: &quot;Quidem totam hic exercitationem iusto fugiat voluptatem.&quot;,
+        &quot;event_description&quot;: &quot;Explicabo quis assumenda quo nam. Nihil aut enim dolorum est esse sint numquam et. Qui quam velit consequatur. Fugit velit nemo rem iusto rerum enim sunt. Dignissimos quae doloremque consequatur et recusandae eum aspernatur.&quot;,
+        &quot;event_date&quot;: &quot;2024-08-30 20:50:40&quot;,
+        &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/007744?text=qui&quot;,
+        &quot;event_city&quot;: &quot;McDermottfort&quot;,
+        &quot;event_address&quot;: &quot;7877 Serena Place Suite 943\nHandtown, GA 79527-5857&quot;,
+        &quot;event_status&quot;: &quot;cancelled&quot;,
+        &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+        &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+    }
+]</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-events" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-events"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-events"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-events" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-events">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-events" data-method="GET"
+      data-path="api/events"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-events', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-events"
+                    onclick="tryItOut('GETapi-events');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-events"
+                    onclick="cancelTryOut('GETapi-events');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-events"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/events</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-events"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-events"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="events-GETapi-events--event_id--ticket-types">Récupérer les types de billets pour un événement donné</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-events--event_id--ticket-types">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/events/1/ticket-types" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/events/1/ticket-types"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-events--event_id--ticket-types">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;id&quot;: 1,
+    &quot;event_category&quot;: &quot;Autres&quot;,
+    &quot;event_title&quot;: &quot;Dicta ipsam aliquam in tempora.&quot;,
+    &quot;event_description&quot;: &quot;Qui aut optio nesciunt optio id accusamus sint. Facere soluta repellendus iste neque molestiae incidunt. Ratione perferendis eligendi quas doloribus provident quam. Minima omnis et illo voluptas ipsam.&quot;,
+    &quot;event_date&quot;: &quot;2024-08-29 22:08:07&quot;,
+    &quot;event_image&quot;: &quot;https://via.placeholder.com/640x480.png/0000cc?text=voluptatibus&quot;,
+    &quot;event_city&quot;: &quot;West Tremaynechester&quot;,
+    &quot;event_address&quot;: &quot;681 Gusikowski Junctions\nEmardmouth, VT 25328&quot;,
+    &quot;event_status&quot;: &quot;cancelled&quot;,
+    &quot;event_created_on&quot;: &quot;2024-08-09 09:20:44&quot;,
+    &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+    &quot;ticket_types&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;ticket_type_event_id&quot;: 1,
+            &quot;ticket_type_name&quot;: &quot;Grand Public&quot;,
+            &quot;ticket_type_price&quot;: 3036,
+            &quot;ticket_type_quantity&quot;: 432,
+            &quot;ticket_type_real_quantity&quot;: 2,
+            &quot;ticket_type_total_quantity&quot;: 104,
+            &quot;ticket_type_description&quot;: &quot;Odio quibusdam laboriosam qui molestiae.&quot;,
+            &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;ticket_type_event_id&quot;: 1,
+            &quot;ticket_type_name&quot;: &quot;VIP&quot;,
+            &quot;ticket_type_price&quot;: 2286,
+            &quot;ticket_type_quantity&quot;: 294,
+            &quot;ticket_type_real_quantity&quot;: 7,
+            &quot;ticket_type_total_quantity&quot;: 69,
+            &quot;ticket_type_description&quot;: &quot;Dicta rerum ea est ad doloribus est voluptatem.&quot;,
+            &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;ticket_type_event_id&quot;: 1,
+            &quot;ticket_type_name&quot;: &quot;Premium&quot;,
+            &quot;ticket_type_price&quot;: 9897,
+            &quot;ticket_type_quantity&quot;: 392,
+            &quot;ticket_type_real_quantity&quot;: 30,
+            &quot;ticket_type_total_quantity&quot;: 416,
+            &quot;ticket_type_description&quot;: &quot;Voluptatum mollitia aut repudiandae velit.&quot;,
+            &quot;created_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-08-09T09:20:44.000000Z&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-events--event_id--ticket-types" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-events--event_id--ticket-types"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-events--event_id--ticket-types"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-events--event_id--ticket-types" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-events--event_id--ticket-types">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-events--event_id--ticket-types" data-method="GET"
+      data-path="api/events/{event_id}/ticket-types"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-events--event_id--ticket-types', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-events--event_id--ticket-types"
+                    onclick="tryItOut('GETapi-events--event_id--ticket-types');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-events--event_id--ticket-types"
+                    onclick="cancelTryOut('GETapi-events--event_id--ticket-types');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-events--event_id--ticket-types"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/events/{event_id}/ticket-types</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-events--event_id--ticket-types"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-events--event_id--ticket-types"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>event_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="event_id"                data-endpoint="GETapi-events--event_id--ticket-types"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the event. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                <h1 id="orders">Orders</h1>
+
+    
+
+                                <h2 id="orders-POSTapi-orders">Create a new order</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-orders">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/orders" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"order_info\": \"eius\",
+    \"order_event_id\": \"hic\",
+    \"order_intent_id\": \"officiis\",
+    \"order_payment\": \"aliquam\",
+    \"order_type\": \"voluptatem\",
+    \"user_id\": \"impedit\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/orders"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "order_info": "eius",
+    "order_event_id": "hic",
+    "order_intent_id": "officiis",
+    "order_payment": "aliquam",
+    "order_type": "voluptatem",
+    "user_id": "impedit"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-orders">
+</span>
+<span id="execution-results-POSTapi-orders" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-orders"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-orders"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-orders" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-orders">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-orders" data-method="POST"
+      data-path="api/orders"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-orders', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-orders"
+                    onclick="tryItOut('POSTapi-orders');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-orders"
+                    onclick="cancelTryOut('POSTapi-orders');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-orders"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/orders</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-orders"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-orders"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>order_info</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="order_info"                data-endpoint="POSTapi-orders"
+               value="eius"
+               data-component="body">
+    <br>
+<p>Example: <code>eius</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>order_event_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="order_event_id"                data-endpoint="POSTapi-orders"
+               value="hic"
+               data-component="body">
+    <br>
+<p>Example: <code>hic</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>order_intent_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="order_intent_id"                data-endpoint="POSTapi-orders"
+               value="officiis"
+               data-component="body">
+    <br>
+<p>Example: <code>officiis</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>order_payment</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="order_payment"                data-endpoint="POSTapi-orders"
+               value="aliquam"
+               data-component="body">
+    <br>
+<p>Example: <code>aliquam</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>order_type</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="order_type"                data-endpoint="POSTapi-orders"
+               value="voluptatem"
+               data-component="body">
+    <br>
+<p>Example: <code>voluptatem</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="user_id"                data-endpoint="POSTapi-orders"
+               value="impedit"
+               data-component="body">
+    <br>
+<p>Example: <code>impedit</code></p>
+        </div>
+        </form>
+
+                    <h2 id="orders-GETapi-orders--user_id--all">Get all orders of a user</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-orders--user_id--all">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/orders/1/all" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/orders/1/all"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-orders--user_id--all">
+            <blockquote>
+            <p>Example response (500):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Server Error&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-orders--user_id--all" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-orders--user_id--all"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-orders--user_id--all"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-orders--user_id--all" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-orders--user_id--all">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-orders--user_id--all" data-method="GET"
+      data-path="api/orders/{user_id}/all"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-orders--user_id--all', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-orders--user_id--all"
+                    onclick="tryItOut('GETapi-orders--user_id--all');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-orders--user_id--all"
+                    onclick="cancelTryOut('GETapi-orders--user_id--all');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-orders--user_id--all"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/orders/{user_id}/all</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-orders--user_id--all"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-orders--user_id--all"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="user_id"                data-endpoint="GETapi-orders--user_id--all"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the user. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+            
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>
